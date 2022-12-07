@@ -4254,11 +4254,7 @@ public class Tdlib implements TdlibProvider, Settings.SettingsChangeListener {
   public static final long TRENDING_STICKERS_CHAT_ID = ChatId.fromSupergroupId(1140222267); // Trending Stickers: t.me/TrendingStickers
 
   public boolean isRedTeam (long chatId) {
-    long supergroupId = ChatId.toSupergroupId(chatId);
-    if (supergroupId == 0)
-      return false;
-    return true || supergroupId == 1084287520 || supergroupId == 1266791237 ||
-      supergroupId == 1492016544 || supergroupId == 1227585106 || supergroupId == 1116030833;
+    return true || chatId != 0;
   }
 
   public void getTesterLevel (@NonNull RunnableInt callback) {
