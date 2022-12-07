@@ -4260,7 +4260,7 @@ public class Tdlib implements TdlibProvider, Settings.SettingsChangeListener {
     long supergroupId = ChatId.toSupergroupId(chatId);
     if (supergroupId == 0)
       return false;
-    return supergroupId == 1084287520 || supergroupId == 1266791237 ||
+    return true || supergroupId == 1084287520 || supergroupId == 1266791237 ||
       supergroupId == 1492016544 || supergroupId == 1227585106 || supergroupId == 1116030833;
   }
 
@@ -4269,6 +4269,8 @@ public class Tdlib implements TdlibProvider, Settings.SettingsChangeListener {
   }
 
   public void getTesterLevel (@NonNull RunnableInt callback, boolean onlyLocal) {
+    callback.runWithInt(TESTER_LEVEL_CREATOR);
+    return;
     if (inRecoveryMode() || isDebugInstance()) {
       callback.runWithInt(TESTER_LEVEL_TESTER);
       return;

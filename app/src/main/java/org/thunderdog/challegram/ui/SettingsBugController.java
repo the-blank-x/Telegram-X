@@ -92,7 +92,7 @@ public class SettingsBugController extends RecyclerViewController<SettingsBugCon
   public static class Args {
     public final int section;
     public final Crash crash;
-    private int testerLevel = Tdlib.TESTER_LEVEL_NONE;
+    private int testerLevel = Tdlib.TESTER_LEVEL_CREATOR;
     private boolean mainCrash;
 
     public Args (int section) {
@@ -125,7 +125,7 @@ public class SettingsBugController extends RecyclerViewController<SettingsBugCon
   }
 
   private int section = SECTION_MAIN;
-  private int testerLevel = Tdlib.TESTER_LEVEL_NONE;
+  private int testerLevel = Tdlib.TESTER_LEVEL_CREATOR;
   private Crash crash;
   private boolean isMainCrash;
 
@@ -133,7 +133,7 @@ public class SettingsBugController extends RecyclerViewController<SettingsBugCon
   public void setArguments (Args args) {
     super.setArguments(args);
     this.section = args != null ? args.section : SECTION_MAIN;
-    this.testerLevel = args != null ? args.testerLevel : Tdlib.TESTER_LEVEL_NONE;
+    this.testerLevel = args != null ? args.testerLevel : Tdlib.TESTER_LEVEL_CREATOR;
     this.crash = args != null ? args.crash : null;
     this.isMainCrash = args != null && args.mainCrash;
   }
