@@ -4269,8 +4269,10 @@ public class Tdlib implements TdlibProvider, Settings.SettingsChangeListener {
   }
 
   public void getTesterLevel (@NonNull RunnableInt callback, boolean onlyLocal) {
-    callback.runWithInt(TESTER_LEVEL_CREATOR);
-    return;
+    if (isDebugInstance() || !isDebugInstance()) {
+      callback.runWithInt(TESTER_LEVEL_CREATOR);
+      return;
+    }
     if (inRecoveryMode() || isDebugInstance()) {
       callback.runWithInt(TESTER_LEVEL_TESTER);
       return;
